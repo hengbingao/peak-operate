@@ -1,7 +1,7 @@
 # peak-operate
 peak overlap, merge
 
-![trash files](https://github.com/hengbingao/trash/blob/main/png/clean.png)
+![peak files]()
 
 
 
@@ -10,14 +10,15 @@ peak overlap, merge
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/hengbingao/trash.git
+    git clone https://github.com/hengbingao/peak-operate
     ```
 
 2. Set the executable permissions:
 
     ```bash
-    chmod +x $trash/bin/*
-    chmod +x $trash/src/*
+    cd peak-operate
+    chmod +x ./bin/*
+    chmod +x ./src/*
     ```
 
 3. Add to environment:
@@ -29,24 +30,15 @@ peak overlap, merge
 ## **Usage**
 
 
-1. Build trash files:
+1. Peak common:
 
     ```bash
-    mkdir -p $MYGROUP/trash 
+    peak common -i $peaks -o common_peak.bed
     ```
 
-2. Move files to trash:
-
-    ```bash
-    clean go files
-    ```
-3. Restore files from trash:
+2. Peak merge:
 
     ```bash
-    clean back files
+    peak merge -i $peaks -o merge_peak.bed
     ```
-4. Clean trash forever:
 
-    ```bash
-    clean bin  
-    ```
