@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+# -----------------------------
+# peak: Main CLI script for peak operations
+# -----------------------------
+
+show_help() {
+    echo "Usage: peak <command> [options]"
+    echo
+    echo "Commands:"
+    echo "  common    Find common peaks across multiple BED files"
+    echo "  merge     Merge multiple BED files into a union set"
+    echo
+    echo "Use 'peak <command> -h' for more information."
+}
+
+# Ω‚Œˆ◊”√¸¡Ó
+subcommand=$1
+shift || true
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+src_dir="$script_dir/../src"
+
+case "$subcommand" in
+    common)
+        "$src_dir/common_peaks.sh" "$@"
+        ;;
+    merge)
+        "$src_dir/merge_peaks.sh" "$@"
+        ;;
+    -h|--help|"")
+        show_help
+        ;;
+    *)
+        echo "Unknown command: $subcommand"
+        show_help
+        exit 1
+        ;;
+esac
